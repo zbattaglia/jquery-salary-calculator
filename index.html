@@ -19,17 +19,19 @@
     <div class="container-fluid">
         <h2>Add an Employee</h2>
     </div>
-    <form class="container-fluid row">
-        <input class="input-btn col" id="firstNameIn" placeholder="First Name"></input>
-        <input class="input-btn col" id="lastNameIn" placeholder="Last Name"></input>
-        <input class="input-btn col" id="idIn" placeholder="ID"></input>
-        <input class="input-btn col" id="titleIn" placeholder="Title"></input>
-        <input class="input-btn col" id="salaryIn" placeholder="Salary"></input>
-    </form>
+    <form>
+    <div class="container-fluid row" id="inputField">
+        <input type="text" class="input-btn col" id="firstNameIn" placeholder="First Name"></input>
+        <input type="text" class="input-btn col" id="lastNameIn" placeholder="Last Name"></input>
+        <input type="text" class="input-btn col" id="idIn" placeholder="ID"></input>
+        <input type="text" class="input-btn col" id="titleIn" placeholder="Title"></input>
+        <input type="number" class="input-btn col" id="salaryIn" placeholder="Salary"></input>
+    </div>
     <div class="container float-right" id="inputForm">
         <!-- <p class="d-inline" id="errorMessage">Missing Information</p> -->
         <button class="d-inline" id="submit-btn">Submit</button>
     </div>
+    </form>
     <div class="container-fluid">
         <h2 class="tableTitle">Employees</h2>
     </div>

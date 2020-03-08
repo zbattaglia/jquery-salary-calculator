@@ -68,3 +68,9 @@ h1 {
     color: red;
     font-weight: bold;
 }
+
+.missingInfo {
+    border-style: solid;
+    border-width: thick;
+    border-color: red;
+}

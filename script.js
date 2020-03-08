@@ -8,7 +8,7 @@ function readyNow () {
 
     // $( '#errorMessage' ).hide(); 
 
-    $( '#submit-btn' ).on( 'click', addEmployee );
+    $( '#submit-btn' ).on( 'click', validateInput );
 
 };
 
@@ -21,20 +21,31 @@ function addEmployee( event ) {
     let title = $( '#titleIn' ).val(); // retrieves value in title input
     let salary = $( '#salaryIn' ).val(); // retrieves value in salary input
 
-    const newEmployee = new Employee( firstName, lastName, id, title, salary ) // passes inputs to new employee constructor
+    // passes inputs to new employee constructor
+    const newEmployee = new Employee( firstName, lastName, id, title, salary )
     console.log( 'New Employee:', newEmployee );
-    
-    // validateInput();
+    employeeArray.push( newEmployee );
+    console.log( 'Updated Array:', employeeArray );
 
 }
 
-// function validateInput() {
-//     console.log('In Validate input.');
-    
-//     $( '#inputForm' ).each( function(){
-//         console.log( 'Inputs are', this.target.value );
-//     });
-// }
+function validateInput( event ) {
+    console.log('In Validate input.');
+
+    event.preventDefault(); // prevent auto refresh on button click
+
+    // loop over inputs to verify that each piece of information has been input
+    $( '#inputField input' ).each( function(){
+        console.log( 'Inputs are', this.value );
+        //
+        if( this.value === '' ) {
+            $( this ).addClass( 'missingInfo' );
+        }
+        else {
+            $( this ).removeClass( 'missingInfo' );
+        }
+    });
+}
 
 function Employee( firstName, lastName, id, title, salary ) {
     this.firstName = firstName;
