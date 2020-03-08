@@ -36,7 +36,11 @@ h1 {
 
 .gray {
     border: solid;
-    background-color:#DCDCDC;
+    background-color:#C0C0C0;
+}
+
+.lightGray {
+    background-color: #DCDCDC;
 }
 
 .bordered {
