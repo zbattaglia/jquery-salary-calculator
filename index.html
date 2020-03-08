@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Salary Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>
+            Salary Calculator
+        </h1>
+    </header>
+    <div class="container-fluid">
+        <h2>Add an Employee</h2>
+    </div>
+    <form class="container-fluid row">
+        <input class="input-btn col" id="firstNameIn" placeholder="First Name"></input>
+        <input class="input-btn col" id="lastNameIn" placeholder="Last Name"></input>
+        <input class="input-btn col" id="idIn" placeholder="ID"></input>
+        <input class="input-btn col" id="titleIn" placeholder="Title"></input>
+        <input class="input-btn col" id="salaryIn" placeholder="Salary"></input>
+    </form>
+    <div class="container float-right" id="inputForm">
+        <!-- <p class="d-inline" id="errorMessage">Missing Information</p> -->
+        <button class="d-inline" id="submit-btn">Submit</button>
+    </div>
+    <div class="container-fluid">
+        <h2 class="tableTitle">Employees</h2>
+    </div>
+    <table id="employeeTable">
+        <tr class="gray">
+            <th class="bordered">First Name</th>
+            <th class="bordered">Last Name</th>
+            <th class="bordered">ID</th>
+            <th class="bordered">Title</th>
+            <th class="bordered">Annual Salary</th>
+            <th class="bordered" id="deletePlacholder"></th>
+        </tr>
+    </table>
+    <h2 class = "container" id="total">Total Monthly:</h2>
+</body>
+</html>

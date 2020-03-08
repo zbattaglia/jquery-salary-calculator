@@ -1,0 +1,70 @@
+h1 {
+    text-align: center;
+    background-color: gray;
+    color: white;
+    height: 2em;
+    padding-top: .5em;
+}
+
+.inputs {
+    margin: 10px;
+}
+
+.input-btn {
+    margin: .5em;
+    text-align: center;
+}
+
+#submit-btn {
+    display: flex;
+    float: right;
+    margin-right: 2.25rem;
+    text-align: center;
+}
+
+.tableTitle {
+    margin-top: 2rem;
+}
+
+#employeeTable {
+    width: 97%;
+    text-align: center;
+    border: solid;
+    border-width: thin;
+    margin-left: .5em;
+}
+
+.gray {
+    border: solid;
+    background-color:#DCDCDC;
+}
+
+.bordered {
+    border: solid;
+    border-style: thin;
+}
+
+#footerRow {
+    background-color: #DCDCDC;
+    column-span: all;
+}
+
+#footer {
+    height: 2rem;
+    border-style: solid;
+
+}
+
+#total {
+    text-align: right;
+    margin-top: 3em;
+}
+
+#deletePlacholder {
+    width: 10rem;
+}
+
+#errorMessage {
+    color: red;
+    font-weight: bold;
+}
