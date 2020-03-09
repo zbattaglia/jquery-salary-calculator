@@ -2,11 +2,12 @@ $( document ).ready( readyNow );
 
 // let employeeArray = [];
 // Pre-built employeeArray for testing
-let employeeArray = [new Employee("Zach", "Battaglia", "1234", "Engineer", 100000), new Employee("Emily", "Hanson", "54721", "Lawyer", 7684123), new Employee("Michael", "Jordan", "654321", "Basketball Player", 2400000)]
+let employeeArray = [new Employee("Zach", "Battaglia", "1234", "Engineer", 750000), new Employee("Emily", "Hanson", "54721", "Lawyer", 120123), new Employee("Michael", "Jordan", "654321", "Basketball Player", 2400000), new Employee("Jim", "Smith", "1236", "Electrician", 60000),  new Employee("Sarah", "Johnson", "654222", "Doctor", 500000)]
+let totalCost = 0;
 
 function readyNow () {
     console.log( 'The Document is Ready' );
-    updateDOM();
+    updateDOM( calculateCost() );
     // function to handle click on submit button
     $( '#submit-btn' ).on( 'click', function(){
         // validate that all inputs have been filled out
@@ -99,18 +100,27 @@ function updateDOM( monthlyTotal ) {
     // empties current totalCost and appends the monthly total recieved from calculateCost
     let $cost = $( '#total' );
     $cost.empty();
-    $cost.append( `Total Monthly: ${monthlyTotal}` );
+    $cost.append( `<span>Total Monthly: ${monthlyTotal}</span>` );
+    
+    if ( totalCost > 20000 ) {
+        console.log( 'Cost is greater than 20k', totalCost );
+        $( '#total').addClass( 'highTotal' );        
+    }
+    else {
+        $( '#total').removeClass( 'highTotal' );        
+    }
 }; // end updateDOM
 
 // function to calculate totatal of all salaries and return monthly total
 function calculateCost() {
     totalCost = 0;
     // loops through all employees in array and add's each salary to total salary cost
+    // divides by 12 for monthly cost
     for ( employee of employeeArray ){
-        totalCost += Number(employee.salary);
+        totalCost += Number(employee.salary) / 12;
     };
-    // Divides annual cost into monthly and formats as US currency
-    let monthlyCost = formatter.format(totalCost / 12);
+    // ormats as US currency
+    let monthlyCost = formatter.format(totalCost);
     return monthlyCost;
 }; // end calculatCost
 

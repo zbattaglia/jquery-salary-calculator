@@ -6,6 +6,10 @@ h1 {
     padding-top: .5em;
 }
 
+.highTotal span {
+    background-color: red;
+}
+
 .inputs {
     margin: 10px;
 }
@@ -61,7 +65,7 @@ h1 {
 
 #total {
     text-align: right;
-    margin-top: 3em;
+    margin-top: 1.5rem;
 }
 
 #deletePlacholder {
