@@ -1,10 +1,12 @@
 $( document ).ready( readyNow );
 
-let employeeArray = [];
+// let employeeArray = [];
+// Pre-built employeeArray for testing
+let employeeArray = [new Employee("Zach", "Battaglia", "1234", "Engineer", 100000), new Employee("Emily", "Hanson", "54721", "Lawyer", 7684123), new Employee("Michael", "Jordan", "654321", "Basketball Player", 2400000)]
 
 function readyNow () {
     console.log( 'The Document is Ready' );
-    
+    updateDOM();
     // function to handle click on submit button
     $( '#submit-btn' ).on( 'click', function(){
         // validate that all inputs have been filled out
@@ -16,9 +18,9 @@ function readyNow () {
     });
 
     // function to handle click on any delete button
-    $( '#tableBody' ).on( 'click', '.delete-btn', function(){
+    $( '#tableBody' ).on( 'click', 'tr', function(){
         // delete employee from employeeArray
-        deleteEmployee();
+        deleteEmployee( event );
         // recalculate cost and store in variable to pass to updateDOM
         let monthlyTotal = calculateCost();
         // updateDom with new employeeArray and updated cost.
@@ -86,11 +88,11 @@ function updateDOM( monthlyTotal ) {
     let rowNum = 0;
     for ( const employee of employeeArray ){
         if ( rowNum === 0 ){
-            $table.append( `<tr><td class="bordered">${employee.firstName}</td><td class="bordered">${employee.lastName}</td><td class="bordered">${employee.id}</td><td class="bordered">${employee.title}</td><td class="bordered">${employee.salary}</td><td class="bordered delete-btn" id="deletePlaceholder"</td><button>Delete</button></tr>`);
+            $table.append( `<tr class="employeeRow"><td class="bordered">${employee.firstName}</td><td class="bordered">${employee.lastName}</td><td class="bordered employeeID">${employee.id}</td><td class="bordered">${employee.title}</td><td class="bordered">${employee.salary}</td><td class="bordered delete-btn" id="deletePlaceholder"</td><button class="delete-btn">Delete</button></tr>`);
             rowNum = 1;
         }
         else {
-            $table.append( `<tr class="lightGray"><td class="bordered">${employee.firstName}</td><td class="bordered">${employee.lastName}</td><td class="bordered">${employee.id}</td><td class="bordered">${employee.title}</td><td class="bordered">${employee.salary}</td><td class="bordered delete-btn" id="deletePlaceholder"</td><button>Delete</button></tr>`);
+            $table.append( `<tr class="lightGray employeeRow"><td class="bordered">${employee.firstName}</td><td class="bordered">${employee.lastName}</td><td class="bordered employeeID">${employee.id}</td><td class="bordered">${employee.title}</td><td class="bordered">${employee.salary}</td><td class="bordered delete-btn" id="deletePlaceholder"</td><button class ="delete-btn">Delete</button></tr>`);
             rowNum = 0;  
         }
     };
@@ -113,7 +115,13 @@ function calculateCost() {
 }; // end calculatCost
 
 function deleteEmployee( event ) {
-    console.log( 'Deleting Employee' );  
+    let deleteID = $(event.target).parent().parent().find('td.bordered.employeeID').text();
+    console.log( 'Deleting Employee', deleteID );
+    for ( let i = 0; i < employeeArray.length; i++ ) {
+        if ( employeeArray[i].id === deleteID ) {
+            employeeArray.splice(i, 1);
+        }
+    };
 };
 
 //formatter to convert raw number to US currency format.
