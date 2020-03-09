@@ -6,6 +6,12 @@ h1 {
     padding-top: .5em;
 }
 
+#deleteID {
+    margin-left: 10px;
+    text-align: center;
+    margin-right: 10px;
+}
+
 .highTotal span {
     background-color: red;
 }
@@ -81,4 +87,8 @@ h1 {
     border-style: solid;
     border-width: thick;
     border-color: red;
+}
+
+#removeHeader {
+    margin-top: 2rem;
 }

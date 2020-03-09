@@ -8,6 +8,13 @@ let totalCost = 0;
 function readyNow () {
     console.log( 'The Document is Ready' );
     updateDOM( calculateCost() );
+
+    // disables the remove employee button until there is an id entered
+    $( '#deleteID-btn' ).attr('disabled', true )
+    $( '#deleteID').keyup( function(){
+        $( '#deleteID-btn' ).removeAttr('disabled');        
+    });
+
     // function to handle click on submit button
     $( '#submit-btn' ).on( 'click', function(){
         // validate that all inputs have been filled out
@@ -25,6 +32,12 @@ function readyNow () {
         // recalculate cost and store in variable to pass to updateDOM
         let monthlyTotal = calculateCost();
         // updateDom with new employeeArray and updated cost.
+        updateDOM( monthlyTotal );
+    });
+
+    $( '#deleteID-btn').on( 'click', function() {
+        deleteById( event );
+        let monthlyTotal = calculateCost();
         updateDOM( monthlyTotal );
     });
 };
@@ -133,6 +146,30 @@ function deleteEmployee( event ) {
         }
     };
 };
+
+function deleteById( event ) {
+    event.preventDefault(); // prevent auto refresh on button click
+    let $id = $( '#deleteID' ).val();
+    console.log('in deleteByID. id is:', $id);
+    let idFound = false;
+    for ( let i = 0; i < employeeArray.length; i++ ) {
+        if ( employeeArray[i].id === $id ) {
+            employeeArray.splice(i, 1);
+            idFound = true;
+        }
+    };
+    let $el = $( '#removeHeader' );
+    if ( idFound === false ) {
+        $el.append(`<h4 id="errorMessage">ID not Found</h4>`)
+    }
+    else {
+        $( '#errorMessage' ).empty();
+    };
+
+    $( '#deleteID' ).val('');
+    $( '#deleteID-btn' ).attr('disabled', true )
+
+} // end deleteById
 
 //formatter to convert raw number to US currency format.
 const formatter = new Intl.NumberFormat('en-US', {
