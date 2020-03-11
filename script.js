@@ -25,15 +25,19 @@ function readyNow () {
         updateDOM( monthlyTotal );
     });
 
-    // function to handle click on any delete button
     $( '#tableBody' ).on( 'click', 'tr', function(){
-        // delete employee from employeeArray
-        deleteEmployee( event );
-        // recalculate cost and store in variable to pass to updateDOM
-        let monthlyTotal = calculateCost();
-        // updateDom with new employeeArray and updated cost.
-        updateDOM( monthlyTotal );
-    });
+      deleteEmployee( event );
+    })
+
+    // function to handle click on any delete button
+    // $( '#tableBody' ).on( 'click', 'tr', function(){
+    //     // delete employee from employeeArray
+    //     deleteEmployee( event );
+    //     // recalculate cost and store in variable to pass to updateDOM
+    //     let monthlyTotal = calculateCost();
+    //     // updateDom with new employeeArray and updated cost.
+    //     updateDOM( monthlyTotal );
+    // });
 
     $( '#deleteID-btn').on( 'click', function() {
         deleteById( event );

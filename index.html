@@ -16,18 +16,18 @@
             Salary Calculator
         </h1>
     </header>
-    <div class="container-fluid">
+    <div class="container-fluid">  <!-- Just a container in L.S. and was in the same "section as the form inputs-->
         <h2>Add an Employee</h2>
     </div>
     <form>
-    <div class="container-fluid row" id="inputField">
+    <div class="container-fluid row" id="inputField">  <!-- Just a container in L.S.--> 
         <input type="text" class="input-btn col" id="firstNameIn" placeholder="First Name"></input>
         <input type="text" class="input-btn col" id="lastNameIn" placeholder="Last Name"></input>
         <input type="text" class="input-btn col" id="idIn" placeholder="ID"></input>
         <input type="text" class="input-btn col" id="titleIn" placeholder="Title"></input>
         <input type="number" class="input-btn col" id="salaryIn" placeholder="Salary"></input>
     </div>
-    <div class="container float-right" id="inputForm">
+    <div class="container float-right" id="inputForm"> <!-- Added a break instead of putting button in its own div -->
         <button class="d-inline" id="submit-btn">Submit</button>
     </div>
     <div class="container-fluid">
@@ -40,11 +40,12 @@
     <div class="container-fluid">
         <h2 class="tableTitle">Employees</h2>
     </div>
+    <!-- Created a section with container class to enclose table in L.S. -->
     <table id="employeeTable">
         <tr class="gray">
-            <th class="bordered">First Name</th>
+            <th class="bordered">First Name</th> <!-- adding a tile allows for accessibility -->
             <th class="bordered">Last Name</th>
-            <th class="bordered">ID</th>
+            <th class="bordered">ID</th> 
             <th class="bordered">Title</th>
             <th class="bordered">Annual Salary</th>
             <th class="bordered" id="deletePlacholder"></th>
